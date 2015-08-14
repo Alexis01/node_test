@@ -1,0 +1,154 @@
+@import url('demo.css');
+@import url('font-awesome.css');
+
+/* GLOBALS */
+
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+.logout-button{
+    
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    margin-bottom: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    outline: none;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 
+        0 0 2px rgba(0,0,0,0.1),
+        0 3px 2px rgba(0,0,0,0.1),
+        inset 0 -3px 2px rgba(0,0,0,0.2);
+
+    /* Icon and fonts styles */
+    font-size: 1.4em;
+    line-height: 1.75;
+    color: white;
+    border: none;
+    background: #FF0000; /* Fallback */
+    background: -moz-linear-gradient(#FF0000, #D50000);
+    background: -ms-linear-gradient(#FF0000, #D50000);
+    background: -o-linear-gradient(#FF0000, #D50000);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#FF0000), to(#D50000));
+    background: -webkit-linear-gradient(#FF0000, #D50000);
+    background: linear-gradient(#FF0000, #D50000);
+    box-shadow: 
+        inset 0 1px 0 rgba(255,255,255,0.3),
+        0 1px 2px rgba(0,0,0,0.35),
+        inset 0 3px 2px rgba(255,255,255,0.2),
+        inset 0 -3px 2px rgba(0,0,0,0.1);
+
+    cursor: pointer;
+
+}
+
+.logout-button:hover,
+.logout-button[type=submit]:focus {
+    background: #FF0000;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.logout-button:active {
+    background: #D50000;
+    box-shadow: 
+        inset 0 0 5px rgba(0,0,0,0.3),
+        inset 0 3px 4px rgba(0,0,0,0.3);
+}
+
+.fa-sign-out:before {
+  content: "\f08b";
+  margin: 10px;
+  position: relative;
+  top: 2px;
+  display: block;
+}
+
+.stats{
+
+    width: 800px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 1px 1px 10px rgba(0,0,0,.2);
+
+}
+
+.stats tr:not(:first-child){
+
+    background: #E8E8E8;
+    color: #777777;
+    font-weight: bold;
+    padding: 20px;
+
+}
+
+.stats.all tr:nth-child(2){
+    display: none;
+}
+
+.stats td{
+
+    padding: 12px;
+
+}
+
+.stats.today{
+    box-shadow: none;
+    margin-bottom: -40px;
+    width: 700px;
+}
+
+.stats.today tr:nth-child(2) td{
+    
+    background: #52cfeb;
+    color: #fff;
+    font-weight: bold;
+    -webkit-animation: pulse .3s 4; /* Safari 4+ */
+    -moz-animation:    pulse .3s 4; /* Fx 5+ */
+    -o-animation:      pulse .3s 4; /* Opera 12+ */
+    animation:         pulse .3s 4; /* IE 10+, Fx 29+ */
+
+}
+
+/*Animación.*/
+@-webkit-keyframes pulse {
+  0%   { background: #E8E8E8; color: #777777 }
+  100% { background: #52cfeb; color: #fff; }
+}
+@-moz-keyframes pulse {
+  0%   { background: #E8E8E8; color: #777777 }
+  100% { background: #52cfeb; color: #fff; }
+}
+@-o-keyframes pulse {
+  0%   { background: #E8E8E8; color: #777777 }
+  100% { background: #52cfeb; color: #fff; }
+}
+@keyframes pulse {
+  0%   { background: #E8E8E8; color: #777777 }
+  100% { background: #52cfeb; color: #fff; }
+}

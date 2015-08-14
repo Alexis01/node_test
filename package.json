@@ -1,0 +1,24 @@
+{
+  "name": "hoursMonitor",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.12.3",
+    "busboy": "^0.2.9",
+    "cookie-parser": "~1.3.3",
+    "deasync": "^0.1.0",
+    "debug": "~2.1.1",
+    "email-validator": "^1.0.1",
+    "express": "~4.11.1",
+    "express-params": "0.0.3",
+    "express-session": "^1.11.3",
+    "forever": "^0.14.1",
+    "gridfs-stream": "^1.1.1",
+    "method-override": "^2.3.2",
+    "mongoose": "3.8",
+    "morgan": "~1.5.1",
+    "serve-favicon": "~2.2.0",
+    "sha1": "^1.1.1",
+    "swig": "^1.4.2"
+  }
+}

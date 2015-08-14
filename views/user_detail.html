@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+
+  {% parent %}
+
+  <title>Acceda para fichar</title>   
+
+  <link rel="stylesheet" type="text/css" href="../css/user_detail.css" />
+
+{% endblock %}
+
+{% block content %}
+
+	<header>
+	  <h1>Buenos días, <strong>{{user.name}}</strong></h1>
+	  <small>Has ingresado a las {{user.timeIn}}</small>
+	</header>
+
+	<table class="stats today">
+
+	  <tr>
+	    <th>Hoy</th>
+	    <th>Hora de entrada</th> 
+	    <th>Posible hora de salida</th>
+	  </tr>
+	  
+	  <tr>
+		  <td>{{user.dateIn}}</td>
+		  <td>{{user.timeIn}}</td>
+		  <td>{{user.possibleOutHour}}</td> 
+	  </tr>
+
+	</table>
+
+	 <table class="stats all">	
+
+	  <tr>
+	    <th>Fecha</th>
+	    <th>Hora de entrada</th> 
+	    <th>Hora de salida</th>
+	  </tr>
+
+	  {% for key, day in stats|reverse %}
+
+		<tr>
+		  <td>{{day.date_in}}</td>
+		  <td>{{day.hour_in}}</td> 
+		  <td>{{day.hour_out}}</td>
+		</tr>
+
+	  {% endfor %}
+	  
+	</table> 
+	<form class="logout-form" action="out" method="post">
+		<input type="text" name="name" value="{{user.name}}" hidden>
+		<button class="logout-button" type="submit">Sesiar Cerrión<i class="fa fa-sign-out"></i></button>
+	</form>
+	
+ 
+{% endblock %}
