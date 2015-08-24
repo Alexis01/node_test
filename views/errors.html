@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+
+  {% parent %}
+
+  <title>ERROR :-/</title>   
+
+  <link rel="stylesheet" type="text/css" href="../css/logout.css" />
+
+{% endblock %}
+
+{% block content %}
+	
+	{# TODO: MANEJAR OBJETO err CON LOS ERRORES #}
+	
+	<header>
+	  <h1><strong>{{ message }}</strong>.</h1>
+	  {% for item in err %}
+	  	<h3>item</h3>
+	  {% endfor %}
+	</header>
+ 
+{% endblock %}
