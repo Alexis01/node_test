@@ -9,16 +9,16 @@ module.exports = function(db) {
 		 * @param  {Function} callback null, lastCheck
 		 * @return {Function}            callback
 		 */
-		getCheck: function(userInfo, callback) {
-			teamChecks.find({user_id: userInfo._id}).limit(1).sort({'time_in':-1})
+		getCheck: function(userInfo, action, callback) {
+			teamChecks.find({user_id: userInfo._id}).limit(1).sort(action)
 			.toArray(function(err, lastCheck) {
-				return callback(null, lastCheck[0].time_in);
+				return callback(null, lastCheck[0]);
 			});
 		},
 		/**
 		 * User checkin
 		 * @param {Object}   user     user info
-		 * @param {Function} callback error, user-info
+		 * @param {Function} callback error, newCheck Object
 		 */
 		setCheck: function(userInfo, callback) {
 			var date = new Date(Date.now());
@@ -52,9 +52,15 @@ module.exports = function(db) {
 		 * @param  {Function} callback err, string checkout date
 		 */
 		updateCheck: function(userInfo, timeStamp, callback) {
-			teamChecks.update({  _id: userInfo._id }, { $set: { time_out: timeStamp }})
+			var stringDate = timeStamp.getDate() + '/' + (timeStamp.getMonth() + 1) + '/' + timeStamp.getFullYear();
+			var stringHour = new Date(timeStamp).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, '$1');
+			teamChecks.update({  _id: userInfo._id }, { $set: { time_out: timeStamp, hour_out: stringHour }})
 			.then(function(result) {
-				return callback(!result);
+				if (result) {
+					return callback(null, result);
+				}else {
+					return callback({ message: 'Can not set checkout'}, null);
+				}
 			});
 		},
 		/**
